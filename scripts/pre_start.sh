@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 export PYTHONUNBUFFERED=1
-export APP="automatic"
 
 TEMPLATE_NAME="sdnext"
-TEMPLATE_VERSION_FILE="/workspace/${APP}/template.json"
+TEMPLATE_VERSION_FILE="/workspace/${SD_BASEDIR}/template.json"
 
 echo "TEMPLATE NAME: ${TEMPLATE_NAME}"
 echo "TEMPLATE VERSION: ${TEMPLATE_VERSION}"
@@ -105,9 +104,9 @@ sync_apps() {
     echo "SYNC: Sync 1 of 2"
     sync_directory "/venv" "${VENV_PATH}"
     echo "SYNC: Sync 2 of 2"
-    sync_directory "/${APP}" "/workspace/${APP}"
+    sync_directory "/${SD_BASEDIR}" "/workspace/${SD_BASEDIR}"
     save_template_json
-    echo "${VENV_PATH}" >"/workspace/${APP}/venv_path"
+    echo "${VENV_PATH}" >"/workspace/${SD_BASEDIR}/venv_path"
 
     # End the timer and calculate the duration
     end_time=$(date +%s)

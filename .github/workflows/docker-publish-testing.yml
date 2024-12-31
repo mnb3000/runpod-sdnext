@@ -1,4 +1,3 @@
-# NOTE: Remove me
 name: Docker publish testing
 
 on:
@@ -49,7 +48,7 @@ jobs:
             type=ref,event=branch,suffix=-${{ github.run_number }}
 
       - name: Build and push
-        uses: docker/bake-action@v4
+        uses: docker/bake-action@v5
         with:
           files: |
             ./docker-bake.hcl
@@ -57,4 +56,4 @@ jobs:
           targets: default
           push: true
         env:
-          RELEASE: dev-build-${{ github.run_number }}
+          RELEASE: testing-${{ github.run_number }}
