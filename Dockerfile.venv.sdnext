@@ -1,0 +1,107 @@
+# SD.Next Dockerfile
+# docs: <https://github.com/vladmandic/automatic/wiki/Docker>
+
+# base image
+# FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE} AS base
+
+# metadata
+LABEL org.opencontainers.image.vendor="SD.Next"
+LABEL org.opencontainers.image.authors="vladmandic"
+LABEL org.opencontainers.image.url="https://github.com/vladmandic/automatic/"
+LABEL org.opencontainers.image.documentation="https://github.com/vladmandic/automatic/wiki/Docker"
+LABEL org.opencontainers.image.source="https://github.com/vladmandic/automatic/"
+LABEL org.opencontainers.image.licenses="AGPL-3.0"
+LABEL org.opencontainers.image.title="SD.Next"
+LABEL org.opencontainers.image.description="SD.Next: Advanced Implementation of Stable Diffusion and other Diffusion-based generative image models"
+LABEL org.opencontainers.image.base.name="https://hub.docker.com/pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime"
+LABEL org.opencontainers.image.version="latest"
+
+# minimum install
+RUN ["apt-get", "-y", "update"]
+RUN ["apt-get", "-y", "install", "git", "build-essential", "google-perftools", "curl"]
+# optional if full cuda-dev is required by some downstream library
+# RUN ["apt-get", "-y", "nvidia-cuda-toolkit"]
+RUN ["/usr/sbin/ldconfig"]
+RUN ["pip", "install", "uv"]
+
+WORKDIR /
+
+FROM base AS sdnext-install
+
+# stop pip and uv from caching
+ENV PIP_NO_CACHE_DIR=true
+ENV PIP_ROOT_USER_ACTION=ignore
+ENV UV_NO_CACHE=true
+# disable model hashing for faster startup
+ENV SD_NOHASHING=true
+# set data directories
+ENV SD_DATADIR="/workspace/data"
+ENV SD_MODELSDIR="/workspace/models"
+ENV SD_DOCKER=true
+ENV SD_BACKEND=original
+
+# tcmalloc is not required but it is highly recommended
+ENV LD_PRELOAD=libtcmalloc.so.4  
+
+ARG SDNEXT_COMMIT
+ARG TORCH_VERSION
+ARG XFORMERS_VERSION
+ARG INDEX_URL
+
+# install sdnext
+COPY --chmod=755 build/install.sh ./
+RUN /install.sh && rm /install.sh
+
+# install CivitAI Model Downloader
+FROM sdnext-install AS civitai-dl-install
+ARG CIVITAI_DOWNLOADER_VERSION="2.1.0"
+RUN git clone https://github.com/ashleykleynhans/civitai-downloader.git && \
+  cd civitai-downloader && \
+  git checkout tags/${CIVITAI_DOWNLOADER_VERSION} && \
+  cp download.py /usr/local/bin/download-model && \
+  chmod +x /usr/local/bin/download-model && \
+  cd .. && \
+  rm -rf civitai-downloader
+
+# install gdrive
+FROM civitai-dl-install AS gdrive-install
+RUN wget https://github.com/glotlabs/gdrive/releases/download/3.9.1/gdrive_linux-x64.tar.gz && \
+  tar -xzvf gdrive_linux-x64.tar.gz && \
+  mv gdrive /usr/local/bin/ && \
+  rm -f gdrive_linux-x64.tar.gz
+
+FROM gdrive-install AS final
+
+# remove existing SSH host keys
+RUN rm -f /etc/ssh/ssh_host_*
+
+# NGINX Proxy
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Set template version
+ARG RELEASE
+ENV TEMPLATE_VERSION=${RELEASE}
+
+# Set the main venv path
+ARG VENV_PATH
+ENV VENV_PATH=${VENV_PATH}
+
+# Copy the scripts
+WORKDIR /
+COPY --chmod=755 scripts/* ./
+
+# Start the container
+SHELL ["/bin/bash", "--login", "-c"]
+CMD [ "/start.sh" ]
+
+# expose port
+EXPOSE 3000
+EXPOSE 7860
+
+# healthcheck function
+# HEALTHCHECK --interval=60s --timeout=10s --start-period=60s --retries=3 CMD curl --fail http://localhost:7860/sdapi/v1/status || exit 1
+
+# stop signal
+STOPSIGNAL SIGINT
