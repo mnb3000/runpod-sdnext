@@ -19,6 +19,10 @@ git clone https://github.com/continue-revolution/sd-webui-animatediff extensions
 git clone --depth=1 https://github.com/civitai/sd_civitai_extension.git extensions_builtin/sd_civitai_extension
 git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions_builtin/sd-civitai-browser-plus
 
+# Install SDNext
+uv pip install -r requirements.txt
+python /automatic/launch.py --debug --use-cuda --use-xformers --uv --test --optional --insecure
+
 # Install dependencies for the various extensions
 cd "/automatic/extensions_builtin/sd-webui-controlnet"
 uv pip install -r requirements.txt
@@ -28,7 +32,3 @@ uv pip install -r requirements.txt
 # Install dependencies for Civitai Browser+ extension
 cd "/automatic/extensions_builtin/sd-civitai-browser-plus"
 uv pip install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysocks
-
-# Install SDNext
-uv pip install -r requirements.txt
-python /automatic/launch.py --debug --use-cuda --use-xformers --uv --test --optional --insecure
