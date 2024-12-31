@@ -57,4 +57,4 @@ jobs:
           targets: default
           push: true
         env:
-          RELEASE: dev-build-${{ github.run_number }}
+          tags: ${{ steps.meta.outputs.tags }}
