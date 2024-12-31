@@ -130,7 +130,6 @@ if [ "$(printf '%s\n' "$EXISTING_VERSION" "$TEMPLATE_VERSION" | sort -V | head -
   if [ "$EXISTING_VERSION" != "$TEMPLATE_VERSION" ]; then
     sync_apps
     fix_venvs
-    link_models
 
     # Create logs directory
     mkdir -p /workspace/logs
