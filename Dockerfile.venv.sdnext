@@ -29,10 +29,9 @@ WORKDIR /
 
 FROM base AS sdnext-install
 
-# stop pip and uv from caching
+# stop pip from caching
 ENV PIP_NO_CACHE_DIR=true
 ENV PIP_ROOT_USER_ACTION=ignore
-ENV UV_NO_CACHE=true
 # disable model hashing for faster startup
 ENV SD_NOHASHING=true
 # set data directories
