@@ -42,6 +42,7 @@ target "default" {
   dockerfile = "Dockerfile.venv.sdnext"
   tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}"]
   args = {
+    APP = "${APP}"
     RELEASE = "${RELEASE}"
     BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-python${PYTHON_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
     TORCH_VERSION = "${TORCH_VERSION}"

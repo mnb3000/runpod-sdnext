@@ -86,6 +86,10 @@ ENV TEMPLATE_VERSION=${RELEASE}
 ARG VENV_PATH
 ENV VENV_PATH=${VENV_PATH}
 
+# Set the directory name
+ARG APP
+ENV APP=${APP}
+
 # Copy the scripts
 WORKDIR /
 COPY --chmod=755 scripts/* ./
