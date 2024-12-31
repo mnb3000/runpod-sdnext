@@ -31,7 +31,7 @@ variable "CUDA_VERSION" {
 }
 
 variable "TORCH_VERSION" {
-  default = "2.4.0"
+  default = "2.3.1"
 }
 
 variable "PYTHON_VERSION" {
