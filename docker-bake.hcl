@@ -42,7 +42,11 @@ variable "RELEASE" {
   default = "testing"
 }
 
+// GitHub Action metadata (tags)
+target "docker-metadata-action" {}
+
 target "default" {
+  inherits = ["docker-metadata-action"]
   dockerfile = "Dockerfile.venv.sdnext"
   tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}"]
   args = {
