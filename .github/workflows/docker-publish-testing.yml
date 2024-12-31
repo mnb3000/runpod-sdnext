@@ -56,4 +56,4 @@ jobs:
           targets: default
           push: true
         env:
-          tags: ${{ steps.meta.outputs.tags }}
+          RELEASE: testing-${{ github.run_number }}
