@@ -1,11 +1,3 @@
-variable "REGISTRY" {
-  default = "docker.io"
-}
-
-variable "REGISTRY_USER" {
-default = "mnb3000"
-}
-
 variable "APP" {
   default = "runpod-sdnext"
 }
@@ -48,7 +40,6 @@ target "docker-metadata-action" {}
 target "default" {
   inherits = ["docker-metadata-action"]
   dockerfile = "Dockerfile.venv.sdnext"
-  tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}"]
   args = {
     RELEASE = "${RELEASE}"
     BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-devel-ubuntu22.04"
