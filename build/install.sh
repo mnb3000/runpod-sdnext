@@ -24,11 +24,11 @@ git clone --depth=1 https://github.com/civitai/sd_civitai_extension.git extensio
 git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions/sd-civitai-browser-plus
 
 # Install dependencies for the various extensions
-cd "/${APP}/extensions/sd-webui-controlnet"
+cd "/automatic/extensions/sd-webui-controlnet"
 pip install -r requirements.txt
-cd "/${APP}/extensions/sd_civitai_extension"
+cd "/automatic/extensions/sd_civitai_extension"
 pip install -r requirements.txt
 
 # Install dependencies for Civitai Browser+ extension
-cd "/${APP}/extensions/sd-civitai-browser-plus"
+cd "/automatic/extensions/sd-civitai-browser-plus"
 pip install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysocks
