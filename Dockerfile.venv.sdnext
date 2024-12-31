@@ -24,7 +24,6 @@ RUN ["apt-get", "-y", "install", "git", "build-essential", "google-perftools", "
 # optional if full cuda-dev is required by some downstream library
 # RUN ["apt-get", "-y", "nvidia-cuda-toolkit"]
 RUN ["/usr/sbin/ldconfig"]
-RUN ["pip", "install", "uv"]
 
 WORKDIR /
 
