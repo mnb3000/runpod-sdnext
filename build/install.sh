@@ -13,10 +13,6 @@ source /venv/bin/activate
 
 uv pip install xformers=="${XFORMERS_VERSION}"
 
-# Install SDNext
-uv pip install -r requirements.txt
-python /automatic/launch.py --debug --use-cuda --use-xformers --uv --test --optional --insecure
-
 # Clone the extensions
 git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions_builtin/sd-webui-controlnet
 git clone https://github.com/continue-revolution/sd-webui-animatediff extensions_builtin/sd-webui-animatediff
@@ -32,3 +28,7 @@ uv pip install -r requirements.txt
 # Install dependencies for Civitai Browser+ extension
 cd "/automatic/extensions_builtin/sd-civitai-browser-plus"
 uv pip install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysocks
+
+# Install SDNext
+uv pip install -r requirements.txt
+python /automatic/launch.py --debug --use-cuda --use-xformers --uv --test --optional --insecure
