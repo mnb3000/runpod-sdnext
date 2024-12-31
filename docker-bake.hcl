@@ -38,6 +38,10 @@ variable "PYTHON_VERSION" {
   default = "3.11"
 }
 
+variable "XFORMERS_VERSION" {
+  default = "0.0.27"
+}
+
 target "default" {
   dockerfile = "Dockerfile.venv.sdnext"
   tags = ["${REGISTRY}/${REGISTRY_USER}/${APP}:${RELEASE}"]
@@ -46,7 +50,7 @@ target "default" {
     RELEASE = "${RELEASE}"
     BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-python${PYTHON_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
     TORCH_VERSION = "${TORCH_VERSION}"
-    XFORMERS_VERSION = "0.0.27"
+    XFORMERS_VERSION = "${XFORMERS_VERSION}"
     XFORMERS_PACKAGE = "xformers==${XFORMERS_VERSION}"
     SDNEXT_COMMIT = "451eeab138defd158ec71a1c28cd1f3573aa1ef5"
     CIVITAI_DOWNLOADER_VERSION = "2.1.0"
