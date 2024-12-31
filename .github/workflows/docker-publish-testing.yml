@@ -15,6 +15,7 @@ jobs:
         with:
           tool-cache: false
           docker-images: false
+          large-packages: false
 
       - name: Clean docker image cache
         run: |
