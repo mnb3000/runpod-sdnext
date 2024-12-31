@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1.3] - 2024-12-31
+### :bug: Bug Fixes
+- [`cadde94`](https://github.com/mnb3000/runpod-sdnext/commit/cadde946fc95751f4f5244aac2f1c6dd0a76c55f) - **docker**: add missing `jq` *(commit by [@mnb3000](https://github.com/mnb3000))*
+
+### :wrench: Chores
+- [`de947b7`](https://github.com/mnb3000/runpod-sdnext/commit/de947b7ebc23ad65ed3d0f2940874c5116eb76e9) - **release**: update CHANGELOG.md for v0.1.2 [skip ci] [norelease] *(commit by [@mnb3000](https://github.com/mnb3000))*
+
+
 ## [v0.1.2] - 2024-12-31
 ### :bug: Bug Fixes
 - [`bd00678`](https://github.com/mnb3000/runpod-sdnext/commit/bd006787b1d8ecf03da9312ea5ae0184cc12a720) - **scripts**: add missing `fix_venv.sh`, add missing depenpency *(commit by [@mnb3000](https://github.com/mnb3000))*
@@ -52,3 +60,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.1.0]: https://github.com/mnb3000/runpod-sdnext/compare/v0.0.3...v0.1.0
 [v0.1.1]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.0...v0.1.1
 [v0.1.2]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.1...v0.1.2
+[v0.1.3]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.2...v0.1.3
