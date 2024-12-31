@@ -36,6 +36,9 @@ ENV SD_BACKEND=original
 # tcmalloc is not required but it is highly recommended
 ENV LD_PRELOAD=libtcmalloc.so.4  
 
+# add uv to $PATH
+ENV PATH="/root/.local/bin:$PATH"
+
 ARG SDNEXT_COMMIT
 ARG TORCH_VERSION
 ARG XFORMERS_VERSION
