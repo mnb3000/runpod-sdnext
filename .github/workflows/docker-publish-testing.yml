@@ -1,4 +1,3 @@
-# NOTE: Remove me
 name: Docker publish testing
 
 on:

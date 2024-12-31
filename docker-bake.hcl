@@ -14,24 +14,20 @@ variable "CU_VERSION" {
     default = "121"
 }
 
-variable "RELEASE" {
-  default = "0.2.0"
-}
-
 variable "BASE_IMAGE_REPOSITORY" {
-  default = "jdini76/runpod-base"
+  default = "runpod/pytorch"
 }
 
 variable "BASE_IMAGE_VERSION" {
-  default = "2.1.0"
+  default = "2.4.0"
 }
 
 variable "CUDA_VERSION" {
-  default = "12.1.1"
+  default = "12.4.1"
 }
 
 variable "TORCH_VERSION" {
-  default = "2.3.1"
+  default = "2.4.0"
 }
 
 variable "PYTHON_VERSION" {
@@ -39,7 +35,11 @@ variable "PYTHON_VERSION" {
 }
 
 variable "XFORMERS_VERSION" {
-  default = "0.0.28"
+  default = "0.0.28.post1"
+}
+
+variable "RELEASE" {
+  default = "0.0.3"
 }
 
 target "default" {
@@ -48,7 +48,7 @@ target "default" {
   args = {
     APP = "${APP}"
     RELEASE = "${RELEASE}"
-    BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-python${PYTHON_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
+    BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-devel-ubuntu22.04"
     TORCH_VERSION = "${TORCH_VERSION}"
     XFORMERS_VERSION = "${XFORMERS_VERSION}"
     XFORMERS_PACKAGE = "xformers==${XFORMERS_VERSION}"
