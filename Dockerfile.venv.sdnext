@@ -48,7 +48,6 @@ ENV LD_PRELOAD=libtcmalloc.so.4
 ARG SDNEXT_COMMIT
 ARG TORCH_VERSION
 ARG XFORMERS_VERSION
-ARG INDEX_URL
 
 # install sdnext
 COPY --chmod=755 build/install.sh ./

@@ -80,9 +80,9 @@ sync_directory() {
             --sparse"
 
     if [ "$use_compression" = true ]; then
-      $tar_cmd | zstd -T0 -1 | pv -s ${total_size} | zstd -d -T0 | $tar_extract_cmd
+      $tar_cmd | zstd -T0 -1 | pv -s "${total_size}" | zstd -d -T0 | $tar_extract_cmd
     else
-      $tar_cmd | pv -s ${total_size} | $tar_extract_cmd
+      $tar_cmd | pv -s "${total_size}" | $tar_extract_cmd
     fi
 
   elif [ "${workspace_fs}" = "overlay" ] || [ "${workspace_fs}" = "xfs" ]; then
