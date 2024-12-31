@@ -15,7 +15,7 @@ pip install xformers=="${XFORMERS_VERSION}"
 
 # Install SDNext
 pip install -r requirements.txt
-python /automatic/launch.py --debug -use-cuda --test --optional
+python /automatic/launch.py --debug --use-cuda --use-xformers --test --optional
 
 # Clone the extensions
 git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions/sd-webui-controlnet
