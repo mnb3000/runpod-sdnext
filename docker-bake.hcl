@@ -7,7 +7,7 @@ default = "mnb3000"
 }
 
 variable "APP" {
-  default = "sdnext"
+  default = "automatic"
 }
 
 variable "CU_VERSION" {
