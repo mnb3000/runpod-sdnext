@@ -14,10 +14,6 @@ variable "SD_BASEDIR" {
   default = "automatic"
 }
 
-variable "CU_VERSION" {
-    default = "121"
-}
-
 variable "BASE_IMAGE_REPOSITORY" {
   default = "runpod/pytorch"
 }
@@ -43,7 +39,7 @@ variable "XFORMERS_VERSION" {
 }
 
 variable "RELEASE" {
-  default = "0.0.3"
+  default = "testing"
 }
 
 target "default" {

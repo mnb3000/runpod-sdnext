@@ -102,7 +102,7 @@ jobs:
             type=semver,pattern={{major}},value=${{ needs.release-on-push.outputs.tag_name  }}
 
       - name: Build and push
-        uses: docker/bake-action@v4
+        uses: docker/bake-action@v5
         with:
           files: |
             ./docker-bake.hcl
