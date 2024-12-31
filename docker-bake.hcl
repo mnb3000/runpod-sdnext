@@ -39,7 +39,7 @@ variable "PYTHON_VERSION" {
 }
 
 variable "XFORMERS_VERSION" {
-  default = "0.0.27"
+  default = "0.0.28"
 }
 
 target "default" {
