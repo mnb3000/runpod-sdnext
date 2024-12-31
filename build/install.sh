@@ -11,10 +11,7 @@ git checkout "${SDNEXT_COMMIT}"
 python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
 
-# Install torch and xformers
-pip install torch=="${TORCH_VERSION}" torchvision torchaudio
 pip install xformers=="${XFORMERS_VERSION}"
-pip install tensorflow[and-cuda]
 
 # Install SDNext
 pip install -r requirements.txt
