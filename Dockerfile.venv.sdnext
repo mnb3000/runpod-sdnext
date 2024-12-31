@@ -14,17 +14,13 @@ RUN ["apt-get", "-y", "install", "git", "build-essential", "google-perftools", "
 # RUN ["apt-get", "-y", "nvidia-cuda-toolkit"]
 RUN ["/usr/sbin/ldconfig"]
 
-# Install pip drop-in replacement uv (https://github.com/astral-sh/uv)
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
 WORKDIR /
 
 FROM base AS sdnext-install
 
-# stop pip and uv from caching
+# stop pip from caching
 ENV PIP_NO_CACHE_DIR=true
 ENV PIP_ROOT_USER_ACTION=ignore
-ENV UV_NO_CACHE=true
 # disable model hashing for faster startup
 ENV SD_NOHASHING=true
 # set data directories
