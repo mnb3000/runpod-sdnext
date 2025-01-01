@@ -2,7 +2,7 @@
 
 export PYTHONUNBUFFERED=1
 
-TEMPLATE_NAME="sdnext"
+TEMPLATE_NAME="runpod-sdnext"
 TEMPLATE_VERSION_FILE="/workspace/${SD_BASEDIR}/template.json"
 
 echo "TEMPLATE NAME: ${TEMPLATE_NAME}"

@@ -42,7 +42,7 @@ target "default" {
   dockerfile = "Dockerfile.venv.sdnext"
   args = {
     RELEASE = "${RELEASE}"
-    BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-devel-ubuntu22.04"
+    BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${TORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-devel-ubuntu22.04"
     TORCH_VERSION = "${TORCH_VERSION}"
     XFORMERS_VERSION = "${XFORMERS_VERSION}"
     XFORMERS_PACKAGE = "xformers==${XFORMERS_VERSION}"
