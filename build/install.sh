@@ -3,7 +3,7 @@ set -e
 
 # Clone the git repo of the SDNext repo
 # and set commit
-git clone https://github.com/vladmandic/automatic.git
+git clone https://github.com/vladmandic/automatic.git --recurse-submodules
 cd /automatic
 git checkout "${SDNEXT_COMMIT}"
 
