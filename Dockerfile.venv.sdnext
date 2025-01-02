@@ -27,7 +27,7 @@ ENV SD_NOHASHING=true
 ENV SD_DATADIR="/workspace/data"
 ENV SD_MODELSDIR="/workspace/models"
 ENV SD_DOCKER=true
-ENV SD_BACKEND=original
+# ENV SD_BACKEND=original
 
 # tcmalloc is not required but it is highly recommended
 ENV LD_PRELOAD=libtcmalloc.so.4  
