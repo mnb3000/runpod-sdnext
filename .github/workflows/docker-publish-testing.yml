@@ -15,6 +15,7 @@ jobs:
         with:
           tool-cache: false
           docker-images: false
+          large-packages: false
 
       - name: Clean docker image cache
         run: |
@@ -44,8 +45,8 @@ jobs:
         with:
           images: mnb3000/runpod-sdnext
           tags: |
-            type=ref,event=branch
             type=ref,event=branch,suffix=-${{ github.run_number }}
+            type=ref,event=branch
 
       - name: Build and push
         uses: docker/bake-action@v5

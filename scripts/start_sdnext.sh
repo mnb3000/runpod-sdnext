@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 echo "SDNext: Starting automatic"
-cd /workspace/"${SD_BASEDIR}" || exit
-python launch.py --debug --listen --skip-all --insecure --use-xformers --api-log --log sdnext.log
+cd "${SD_BASEDIR}" || exit
+venv_dir=$VENV_PATH ./webui.sh --debug --listen --skip-all --insecure --use-cuda --use-xformers --api-log --log sdnext.log
