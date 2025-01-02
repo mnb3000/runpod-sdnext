@@ -16,9 +16,6 @@ git submodule --quiet update --init --recursive
 python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
 
-pip install --no-cache-dir torch=="${TORCH_VERSION}" torchvision torchaudio --index-url "${INDEX_URL}"
-pip install --no-cache-dir xformers=="${XFORMERS_VERSION}" --index-url "${INDEX_URL}"
-
 # Clone the extensions
 git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions-builtin/sd-webui-controlnet
 # git clone https://github.com/continue-revolution/sd-webui-animatediff extensions-builtin/sd-webui-animatediff
