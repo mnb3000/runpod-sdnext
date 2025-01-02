@@ -47,7 +47,7 @@ target "default" {
     XFORMERS_VERSION = "${XFORMERS_VERSION}"
     XFORMERS_PACKAGE = "xformers==${XFORMERS_VERSION}"
     SD_BASEDIR = "${SD_BASEDIR}"
-    SDNEXT_COMMIT = "451eeab138defd158ec71a1c28cd1f3573aa1ef5"
+    # SDNEXT_COMMIT = "451eeab138defd158ec71a1c28cd1f3573aa1ef5"
     CIVITAI_DOWNLOADER_VERSION = "2.1.0"
     VENV_PATH = "/workspace/venvs/${APP}"
   }

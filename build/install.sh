@@ -3,9 +3,14 @@ set -e
 
 # Clone the git repo of the SDNext repo
 # and set commit
-git clone https://github.com/vladmandic/automatic.git --recurse-submodules
+git clone https://github.com/vladmandic/automatic.git
 cd /automatic
-git checkout "${SDNEXT_COMMIT}"
+
+if [[ -e ${SDNEXT_COMMIT} ]]; then
+  git checkout "${SDNEXT_COMMIT}"
+fi
+
+git submodule --quiet update --init --recursive
 
 # Create and activate venv
 python3 -m venv --system-site-packages /venv
