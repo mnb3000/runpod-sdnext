@@ -19,10 +19,10 @@ source /venv/bin/activate
 pip install xformers=="${XFORMERS_VERSION}"
 
 # Clone the extensions
-git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions_builtin/sd-webui-controlnet
-git clone https://github.com/continue-revolution/sd-webui-animatediff extensions_builtin/sd-webui-animatediff
-git clone --depth=1 https://github.com/civitai/sd_civitai_extension.git extensions_builtin/sd_civitai_extension
-git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions_builtin/sd-civitai-browser-plus
+git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions-builtin/sd-webui-controlnet
+git clone https://github.com/continue-revolution/sd-webui-animatediff extensions-builtin/sd-webui-animatediff
+git clone --depth=1 https://github.com/civitai/sd_civitai_extension.git extensions-builtin/sd_civitai_extension
+git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions-builtin/sd-civitai-browser-plus
 
 # Install SDNext
 pip install -r requirements.txt

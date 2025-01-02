@@ -10,10 +10,6 @@ variable "BASE_IMAGE_REPOSITORY" {
   default = "runpod/pytorch"
 }
 
-variable "BASE_IMAGE_VERSION" {
-  default = "2.4.0"
-}
-
 variable "CUDA_VERSION" {
   default = "12.4.1"
 }
@@ -27,7 +23,7 @@ variable "PYTHON_VERSION" {
 }
 
 variable "XFORMERS_VERSION" {
-  default = "0.0.28.post1"
+  default = "0.0.28.post3"
 }
 
 variable "RELEASE" {
