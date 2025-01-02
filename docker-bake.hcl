@@ -2,12 +2,16 @@ variable "APP" {
   default = "runpod-sdnext"
 }
 
+variable "CU_VERSION" {
+    default = "124"
+}
+
 variable "SD_BASEDIR" {
   default = "automatic"
 }
 
 variable "BASE_IMAGE_REPOSITORY" {
-  default = "runpod/pytorch"
+  default = "mnb3000/runpod-pytorch"
 }
 
 variable "CUDA_VERSION" {
@@ -15,7 +19,7 @@ variable "CUDA_VERSION" {
 }
 
 variable "TORCH_VERSION" {
-  default = "2.4.0"
+  default = "2.5.1"
 }
 
 variable "PYTHON_VERSION" {
@@ -38,6 +42,7 @@ target "default" {
   dockerfile = "Dockerfile.venv.sdnext"
   args = {
     RELEASE = "${RELEASE}"
+    INDEX_URL = "https://download.pytorch.org/whl/cu${CU_VERSION}"
     BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${TORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-devel-ubuntu22.04"
     TORCH_VERSION = "${TORCH_VERSION}"
     XFORMERS_VERSION = "${XFORMERS_VERSION}"

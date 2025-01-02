@@ -16,11 +16,12 @@ git submodule --quiet update --init --recursive
 python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
 
-pip install xformers=="${XFORMERS_VERSION}"
+pip install --no-cache-dir torch=="${TORCH_VERSION}" torchvision torchaudio --index-url "${INDEX_URL}"
+pip install --no-cache-dir xformers=="${XFORMERS_VERSION}" --index-url "${INDEX_URL}"
 
 # Clone the extensions
 git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions-builtin/sd-webui-controlnet
-git clone https://github.com/continue-revolution/sd-webui-animatediff extensions-builtin/sd-webui-animatediff
+# git clone https://github.com/continue-revolution/sd-webui-animatediff extensions-builtin/sd-webui-animatediff
 git clone --depth=1 https://github.com/civitai/sd_civitai_extension.git extensions-builtin/sd_civitai_extension
 git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions-builtin/sd-civitai-browser-plus
 
