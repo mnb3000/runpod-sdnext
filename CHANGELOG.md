@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.0] - 2025-01-02
+### :sparkles: New Features
+- [`4448101`](https://github.com/mnb3000/runpod-sdnext/commit/444810188ddfcbef7c488602b845e7b2442319fb) - **build**: add `uv`, drop-in pip replacement (experimental) *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`7b88aa4`](https://github.com/mnb3000/runpod-sdnext/commit/7b88aa47bfab3ebdc36b3f9f17e72593f6a196f8) - **scripts**: temporarily disable venv/app sync to /workspace *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`c69d1a0`](https://github.com/mnb3000/runpod-sdnext/commit/c69d1a0b0ba8f8f53dcd7aeccbcd921f9291fd04) - **backend**: switch to diffusers backend *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`9617462`](https://github.com/mnb3000/runpod-sdnext/commit/96174625cbabfd1ea1741da1095fd57cee43ca9b) - **build**: move torch/xformers install to base image *(commit by [@mnb3000](https://github.com/mnb3000))*
+
+### :bug: Bug Fixes
+- [`2e339aa`](https://github.com/mnb3000/runpod-sdnext/commit/2e339aa2bab150efd1b48017e20c09da0026eab9) - **install**: move sdnext install after extension download *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`e2b4295`](https://github.com/mnb3000/runpod-sdnext/commit/e2b4295a4343b9ccdde80ba6f109dc56781836a2) - **docker**: add `uv` to `$PATH` *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`066e510`](https://github.com/mnb3000/runpod-sdnext/commit/066e5105e5b1dc6d93e9a2b849c557b024c5867b) - **install**: extension installation order *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`0edefdc`](https://github.com/mnb3000/runpod-sdnext/commit/0edefdce45457afc7af990e36c53a19ad6cad561) - **scripts**: fix venv_dir *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`18c261a`](https://github.com/mnb3000/runpod-sdnext/commit/18c261a406d884e311f89a5fe310ebf6a8543080) - **install**: add submodules init on build *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`3c01092`](https://github.com/mnb3000/runpod-sdnext/commit/3c01092d5c73ecce9dfdcff0950f51bfc81c7331) - **scripts**: add (potentially?) missing cmd arguments, remove repo commit pinning *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`083e439`](https://github.com/mnb3000/runpod-sdnext/commit/083e43999b715fd5dbbf6911d883cc78ccdae3a9) - **install**: fix typo in custom extensions path *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`c8ec9fd`](https://github.com/mnb3000/runpod-sdnext/commit/c8ec9fd38fd51ae4f9e46c3f0a9495d3c9f3b478) - **install**: fix extensions paths *(commit by [@mnb3000](https://github.com/mnb3000))*
+- [`45812fe`](https://github.com/mnb3000/runpod-sdnext/commit/45812fe4eca3cd5a2f790f774ad5529d495436aa) - **paths**: set venv/basedir paths to local container *(commit by [@mnb3000](https://github.com/mnb3000))*
+
+### :wrench: Chores
+- [`f3ee805`](https://github.com/mnb3000/runpod-sdnext/commit/f3ee8059d322d91436fc8ff3ed6bb09116e568de) - **release**: update CHANGELOG.md for v0.1.3 [skip ci] [norelease] *(commit by [@mnb3000](https://github.com/mnb3000))*
+
+
 ## [v0.1.3] - 2024-12-31
 ### :bug: Bug Fixes
 - [`cadde94`](https://github.com/mnb3000/runpod-sdnext/commit/cadde946fc95751f4f5244aac2f1c6dd0a76c55f) - **docker**: add missing `jq` *(commit by [@mnb3000](https://github.com/mnb3000))*
@@ -61,3 +83,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.1.1]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.0...v0.1.1
 [v0.1.2]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.1...v0.1.2
 [v0.1.3]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.2...v0.1.3
+[v1.0.0]: https://github.com/mnb3000/runpod-sdnext/compare/v0.1.3...v1.0.0
