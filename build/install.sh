@@ -25,13 +25,3 @@ git clone https://github.com/BlafKing/sd-civitai-browser-plus.git extensions-bui
 # Install SDNext
 pip install -r requirements.txt
 python /automatic/launch.py --debug --use-cuda --use-xformers --test --optional --insecure
-
-# Install dependencies for the various extensions
-cd "/automatic/extensions-builtin/sd-webui-controlnet"
-pip install -r requirements.txt
-cd "/automatic/extensions-builtin/sd_civitai_extension"
-pip install -r requirements.txt
-
-# Install dependencies for Civitai Browser+ extension
-cd "/automatic/extensions-builtin/sd-civitai-browser-plus"
-pip install send2trash beautifulsoup4 ZipUnicode fake-useragent packaging pysocks
